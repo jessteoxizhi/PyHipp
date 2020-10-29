@@ -20,6 +20,7 @@ if nargs > 3:
     print('Usage: envlist; envlist env; envlist envprefix nenvs')
     exit
 elif nargs > 2:
+<<<<<<< HEAD
     # creates or re-creates the list of environments
     pmode = RESET_MODE
     # get prefix for environment name
@@ -43,24 +44,19 @@ with lock:
         # create a list (named clist) of nevns environments with the 
         # prefix envprefix
         # add code here
-        clist = []
-        for i in range(int(nenvs)):
-            clist.append(envprefix + str(i))
-
-
+        clist1 = [*range(0,int(nenvs),1)]
+        clist = [envprefix + str(s) for s in clist1]
     else:
         # load hickle file
         clist = hickle.load(file_path)
 
         if pmode == WRITE_MODE:
-            # append env to the clist
-            # add code here
+            # append item to end of list
             clist.append(env)
-        else:
-            # get and remove env from clist
-            # add code here
-            # return env name
+        else:    
+            # pop first item off list
             env = clist.pop(0)
+            # return env name
             print(env)
 
     # save hickle file
