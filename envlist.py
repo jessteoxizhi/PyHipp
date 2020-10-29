@@ -20,7 +20,6 @@ if nargs > 3:
     print('Usage: envlist; envlist env; envlist envprefix nenvs')
     exit
 elif nargs > 2:
-<<<<<<< HEAD
     # creates or re-creates the list of environments
     pmode = RESET_MODE
     # get prefix for environment name
@@ -41,9 +40,6 @@ lock = FileLock(lock_path, timeout=time_out_secs)
 
 with lock:
     if pmode == RESET_MODE:
-        # create a list (named clist) of nevns environments with the 
-        # prefix envprefix
-        # add code here
         clist1 = [*range(0,int(nenvs),1)]
         clist = [envprefix + str(s) for s in clist1]
     else:
