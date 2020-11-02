@@ -152,7 +152,11 @@ class Waveform(DPT.DPObject):
                 # add code to return number of channels and the appropriate
                 # channel number if the current array number is i
                 #self.current_plot_type = 'Channel'
-                return self.numSets, i * int(self.numSets / len(self.array_dict))
+                if i == 0:
+                    return self.numSets, 0;
+                else:
+                    return self.numSets, self.array_dict[i-1] + 1
+            #i * int(self.numSets / len(self.array_dict))
             elif self.current_plot_type == 'Channel' and plot_type == 'Array':  
                 # add code to return number of arrays and the appropriate
                 # array number if the current channel number is i
